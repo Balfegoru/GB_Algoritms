@@ -4,18 +4,16 @@
 
 //1.Реализовать функцию перевода чисел из десятичной системы в двоичную, используя рекурсию.
 
-void Convert(int number)
+void Convert(int number,char a[4])
 {
     int result = 0;
     result = result + number % 2;
     
     if (number / 2 != 0)
     {
-        Convert(number/2);
+        Convert(number/2, a);
     }
-
     printf("%d",result);
-
 }
 
 
@@ -24,17 +22,12 @@ void Convert(int number)
 
 int Sqrtnumber(int a, int b)
 {
-    
     if (b > 1)
     {
-        Sqrtnumber(a * a,b-1);
+        a = a * Sqrtnumber(a,b-1);
         
     }
-    else
-    {
         return a;
-    }
-    
 }
 
 
@@ -43,6 +36,21 @@ int Sqrtnumber(int a, int b)
 //  чётная, основание возводится в квадрат, а показатель делится на два, а если степень нечётная - результат умножается на основание,
 //  а показатель уменьшается на единицу)
 
+int SqrtnumberUsl(int a, int b)
+{
+    if (b > 1 && b % 2 == 0  )
+    {
+        a =  Sqrtnumber(a * a, b/2);
+
+    }
+
+    if (b > 1, b % 2 != 0)
+    {
+        a = a * Sqrtnumber(a, b - 1);
+    }
+
+    return a;
+}
 
 //c)Реализовать нахождение количества маршрутов шахматного короля с препятствиями(где единица - это наличие препятствия, а ноль - свободная
 //для хода клетка)
@@ -52,12 +60,18 @@ int main()
 
     setlocale(LC_ALL, "Rus");
 
+
+    char a[4];
     printf("\n1.Конвертер рекурсивный из десятичной \n");
-    Convert(22);
-    /*number = Convert(22);
+    Convert(10,a);
+
+    /*int number;
+    number = Convert(22);
     printf("\n1.Конвертер рекурсивный из десятичной \n%d ", number);*/
 
-    printf("\n2.Рекурсивное возведение в степень \n%d", Sqrtnumber(3,4));
+    printf("\n2.Рекурсивное возведение в степень \n%d", Sqrtnumber(2,4));
+    printf("\n3.Рекурсивное возведение в степень с условиями \n%d", SqrtnumberUsl(10, 1));
+
     return 0;
 }
 
