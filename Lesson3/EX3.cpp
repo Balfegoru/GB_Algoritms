@@ -298,9 +298,9 @@ void ShessKing2()
     }
 
     //подсчет препятствий
-    for (int i = -4; i <= 4; i++)
+    for (int i = 1; i <= 3; i++)
     {
-        for (int j = -4; j <= 4; j++)
+        for (int j = 1; j <= 3; j++)
         {
             try
             {
@@ -312,7 +312,7 @@ void ShessKing2()
             }
             catch(int i)
             {
-                
+                walls++;
             }
         }
     }
