@@ -241,7 +241,8 @@ void ShessKing2()
     int kingi = 0 + rand() % (a - 1);
     int kingj = 0 + rand() % (a - 1);
     int spot;
-
+    kingi = 3;
+    kingj = 3;
     //Счетчик препятствий
     int walls = 0;
 
@@ -276,13 +277,13 @@ void ShessKing2()
                 }
             }
 
-            
-                field[kingi][kingj] = 'K';
-
-                if (spot == 0)
-                {
-                    field[i][j] = '#';
-                }
+            if (spot == 0)
+            {
+                field[i][j] = '#';
+            }
+                
+            field[kingi][kingj] = 'K';
+  
         }
     }
 
@@ -297,27 +298,20 @@ void ShessKing2()
         printf("\n");
     }
 
-    //подсчет препятствий
-    for (int i = 1; i <= 3; i++)
+    //подсчет препятствий //Не реализован поиск препятствий в углах и на краях доски поэтому позиция короля пока закреплена в 4.4
+    for (int i = -1; i < 2; i++)
     {
-        for (int j = 1; j <= 3; j++)
+        for (int j = -1; j < 2; j++)
         {
-            try
-            {
-                if (field[kingi+i][kingj+j] == '#')
-                {
-                    walls++;
-                }
-
-            }
-            catch(int i)
+            if (field[kingi + i][kingj + j] == '#')
             {
                 walls++;
             }
+                    
         }
     }
 
-    printf("\nNumber of Walls %d",walls);
+    printf("\nNumber ways %d",8-walls);
 
 }
 
