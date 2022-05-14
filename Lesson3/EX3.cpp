@@ -2,7 +2,11 @@
 #include <time.h>
 #include <stdlib.h>
 
+
 //1.Реализовать функцию перевода чисел из десятичной системы в двоичную, используя рекурсию.
+
+
+
 
 void Convert(int number,char a[4])
 {
@@ -64,8 +68,8 @@ void ShessKing2()
     const unsigned char WHITE = 178;
     const unsigned char GRAY = 176;
     //случайная величина которая показывает на какой клетке появится король
-    int kingi = 0 + rand() % (a - 1);
-    int kingj = 0 + rand() % (a - 1);
+    int kingi = 0 + rand() % a;
+    int kingj = 0 + rand() % a;
     int spot;
     kingi = 3;
     kingj = 3;
@@ -139,30 +143,5 @@ void ShessKing2()
 
     printf("\nNumber ways %d",8-walls);
 
-}
-
-int main()
-{
-    
-    //setlocale(LC_ALL, "Rus");
-
-
-    char a[4];
-    printf("\n1.Recursive Decimal converter \n");
-    Convert(10,a);
-
-    /*int number;
-    number = Convert(22);
-    printf("\n1.Конвертер рекурсивный из десятичной \n%d ", number);*/
-
-    printf("\n2.Recursive exponentiation \n%d", Sqrtnumber(2,4));
-    printf("\n3.Recursive exponentiation with conditions \n%d\n\n\n", SqrtnumberUsl(10, 1));
-
-
-    //printf("\n4.Шахматы\n%d", );
-    printf("4.Shess\n\n");
-    ShessKing2();
-
-    return 0;
 }
 
